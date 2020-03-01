@@ -14,6 +14,13 @@ jobs:
       - run: iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
       - run: Install-Module -Name 7Zip4Powershell -Force -Scope CurrentUser
       - run: choco install -y msys2
+      - run: |
+          Invoke-WebRequest -UseBasicParsing -Uri "https://code.call-cc.org/releases/$Env:version/chicken-$Env:version.tar.gz" -OutFile '.\chicken.tar.gz'
+          Expand-7Zip chicken.tar.gz -TargetPath '.\'
+          Expand-7Zip chicken.tar -TargetPath '.\'
+          Remove-Item -Force chicken.tar.gz
+          Remove-Item -Force chicken.tar
+          mv chicken-* chickenbuild
       - run: .\build.ps1
       - run: choco apikey --key $Env:CHOCO_API_KEY --source https://push.chocolatey.org
       - run: choco push chicken.$Env:version.nupkg --source https://push.chocolatey.org

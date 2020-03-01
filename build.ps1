@@ -2,16 +2,6 @@
 #$version = '5.2.0'
 #$binaryversion=11
 
-# Fetching and unpacking remote files
-Invoke-WebRequest -UseBasicParsing -Uri "https://code.call-cc.org/releases/$Env:version/chicken-$Env:version.tar.gz" -OutFile '.\chicken.tar.gz'
-#Expand-7Zip chicken.tar.gz -TargetPath '.\'
-#Expand-7Zip chicken.tar -TargetPath '.\'
-7z x chicken.tar.gz
-7z x chicken.tar
-Remove-Item -Force chicken.tar.gz
-Remove-Item -Force chicken.tar
-mv chicken-* chickenbuild
-
 # Building
 C:\tools\msys64\usr\bin\bash.exe --login -c 'pacboy -Sy --needed --noconfirm binutils:x make:x gcc:x gettext:x readline:x'
 $env:Path+=";C:\tools\msys64\mingw64\bin"
