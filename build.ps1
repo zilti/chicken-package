@@ -1,11 +1,6 @@
 ﻿#Set-Variable -Name "version" -Value "4.12.0"
-$version = '5.2.0'
-$binaryversion=11
-
-# Preventive cleanup
-Remove-Item -Recurse -Force chickenbuild
-Remove-Item -Force chicken.*.nupkg
-Remove-Item -Recurse -Force chicken-*
+#$version = '5.2.0'
+#$binaryversion=11
 
 # Fetching and unpacking remote files
 Install-Module -Name 7Zip4Powershell -Force -Scope CurrentUser
@@ -79,4 +74,3 @@ cd chicken
 choco pack
 cd ..
 mv .\chicken\chicken.$version.nupkg .\
-Remove-Item -Recurse -Force chicken

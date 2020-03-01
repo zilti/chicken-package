@@ -6,6 +6,12 @@ orbs:
 jobs:
   build:
     executor: win/default
+    environment:
+      version: '5.2.0'
+      binaryversion: '11'
     steps:
       - checkout
+      - run: [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
       - run: .\build.ps1
+      - run: choco apikey --key $CHOCO_API_KEY --source https://push.chocolatey.org
+      - run: choco push chicken.$version.nupkg --source https://push.chocolatey.org
