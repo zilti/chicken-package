@@ -16,4 +16,4 @@ jobs:
       - run: choco install -y msys2
       - run: .\build.ps1
       - run: choco apikey --key $Env:CHOCO_API_KEY --source https://push.chocolatey.org
-      - run: choco push chicken.$version.nupkg --source https://push.chocolatey.org
+      - run: choco push chicken.$Env:version.nupkg --source https://push.chocolatey.org

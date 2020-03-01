@@ -3,7 +3,7 @@
 #$binaryversion=11
 
 # Fetching and unpacking remote files
-Invoke-WebRequest -UseBasicParsing -Uri "https://code.call-cc.org/releases/$version/chicken-$version.tar.gz" -OutFile '.\chicken.tar.gz'
+Invoke-WebRequest -UseBasicParsing -Uri "https://code.call-cc.org/releases/$Env:version/chicken-$Env:version.tar.gz" -OutFile '.\chicken.tar.gz'
 #Expand-7Zip chicken.tar.gz -TargetPath '.\'
 #Expand-7Zip chicken.tar -TargetPath '.\'
 7z x chicken.tar.gz
@@ -16,7 +16,7 @@ mv chicken-* chickenbuild
 C:\tools\msys64\usr\bin\bash.exe --login -c 'pacboy -Sy --needed --noconfirm binutils:x make:x gcc:x gettext:x readline:x'
 $env:Path+=";C:\tools\msys64\mingw64\bin"
 mingw32-make.exe -C chickenbuild PLATFORM=mingw ARCH=x86-64 PREFIX=C:/tools/chicken
-choco new chicken --version $version --maintainername="'Daniel Ziltener'"
+choco new chicken --version $Env:version --maintainername="'Daniel Ziltener'"
 Remove-Item -Recurse -Force chicken\tools\
 Remove-Item -Force chicken\ReadMe.md
 
@@ -67,8 +67,8 @@ foreach ($file in $files) {
 cd ..
 # Cleanup and packaging
 Remove-Item -Recurse -Force chickenbuild
-(Get-Content chicken.nuspec).replace("CHICKEN_VERSION", "$version") | Set-Content chicken\chicken.nuspec
+(Get-Content chicken.nuspec).replace("CHICKEN_VERSION", "$Env:version") | Set-Content chicken\chicken.nuspec
 cd chicken
 choco pack
 cd ..
-mv .\chicken\chicken.$version.nupkg .\
+mv .\chicken\chicken.$Env:version.nupkg .\

@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>chicken</id>
-    <version>5.2.0</version>
+    <version>CHICKEN_VERSION</version>
     <title>Chicken Scheme</title>
     <authors>Felix Winkelmann, Peter Bex, Evan Hanson</authors>
     <owners>Daniel Ziltener</owners>
