@@ -3,8 +3,6 @@
 #$binaryversion=11
 
 # Fetching and unpacking remote files
-Install-Module -Name 7Zip4Powershell -Force -Scope CurrentUser
-choco install -y msys2
 Invoke-WebRequest -UseBasicParsing -Uri "https://code.call-cc.org/releases/$version/chicken-$version.tar.gz" -OutFile '.\chicken.tar.gz'
 #Expand-7Zip chicken.tar.gz -TargetPath '.\'
 #Expand-7Zip chicken.tar -TargetPath '.\'

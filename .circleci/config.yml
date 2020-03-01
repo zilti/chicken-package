@@ -12,6 +12,8 @@ jobs:
     steps:
       - checkout
       - run: iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+      - run: Install-Module -Name 7Zip4Powershell -Force -Scope CurrentUser
+      - run: choco install -y msys2
       - run: .\build.ps1
       - run: choco apikey --key $CHOCO_API_KEY --source https://push.chocolatey.org
       - run: choco push chicken.$version.nupkg --source https://push.chocolatey.org
