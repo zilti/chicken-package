@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>chicken</id>
+    <version>5.2.0</version>
+    <title>Chicken Scheme</title>
+    <authors>Felix Winkelmann, Peter Bex, Evan Hanson</authors>
+    <owners>Daniel Ziltener</owners>
+    <licenseUrl>https://opensource.org/licenses/BSD-3-Clause</licenseUrl>
+    <projectUrl>http://www.call-cc.org</projectUrl>
+    <iconUrl>http://wiki.call-cc.org/chicken-small.png</iconUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>CHICKEN is a compiler for the Scheme programming language. It produces portable and efficient C and supports the R5RS and R7RS (work in progress) standards, and many extensions. It runs on Linux, OS X, Windows, many Unix flavours, and aims to be
+    free, simple, portable, extensible, well documented and actively supported.</description>
+    <summary>CHICKEN is a compiler for the Scheme programming language.</summary>
+    <tags>chicken admin scheme lisp programming language</tags>
+    <projectSourceUrl>https://code.call-cc.org/cgi-bin/gitweb.cgi?p=chicken-core.git;a=summary</projectSourceUrl>
+    <packageSourceUrl>https://bitbucket.org/zilti/chicken</packageSourceUrl>
+    <docsUrl>http://wiki.call-cc.org/man/4/The%20User%27s%20Manual</docsUrl>
+    <mailingListUrl>http://lists.nongnu.org/mailman/listinfo/chicken-users</mailingListUrl>
+    <bugTrackerUrl>http://bugs.call-cc.org/</bugTrackerUrl>
+    <dependencies>
+      <dependency id="msys2" />
+    </dependencies>
+  </metadata>
+</package>
