@@ -3,9 +3,6 @@
 #$binaryversion=11
 
 # Building
-C:\tools\msys64\usr\bin\bash.exe --login -c 'pacboy -Sy --needed --noconfirm binutils:x make:x gcc:x gettext:x readline:x'
-$env:Path+=";C:\tools\msys64\mingw64\bin"
-mingw32-make.exe -C chickenbuild PLATFORM=mingw ARCH=x86-64 PREFIX=C:/tools/chicken
 choco new chicken --version $Env:version --maintainername="'Daniel Ziltener'"
 Remove-Item -Recurse -Force chicken\tools\
 Remove-Item -Force chicken\ReadMe.md
