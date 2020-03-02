@@ -17,8 +17,8 @@ jobs:
       - run: |
           $ProgressPreference = "SilentlyContinue"
           Invoke-WebRequest -UseBasicParsing -Uri "https://code.call-cc.org/releases/$Env:version/chicken-$Env:version.tar.gz" -OutFile '.\chicken.tar.gz'
-          Expand-7Zip chicken.tar.gz -TargetPath '.\'
-          Expand-7Zip chicken.tar -TargetPath '.\'
+          7z x chicken.tar.gz
+          7z x chicken.tar
           Remove-Item -Force chicken.tar.gz
           Remove-Item -Force chicken.tar
           mv chicken-* chickenbuild
