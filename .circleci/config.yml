@@ -15,6 +15,7 @@ jobs:
       - run: Install-Module -Name 7Zip4Powershell -Force -Scope CurrentUser
       - run: choco install -y msys2
       - run: |
+          $ProgressPreference = "SilentlyContinue"
           Invoke-WebRequest -UseBasicParsing -Uri "https://code.call-cc.org/releases/$Env:version/chicken-$Env:version.tar.gz" -OutFile '.\chicken.tar.gz'
           Expand-7Zip chicken.tar.gz -TargetPath '.\'
           Expand-7Zip chicken.tar -TargetPath '.\'
