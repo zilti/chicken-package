@@ -23,7 +23,7 @@ jobs:
           Remove-Item -Force chicken.tar
           mv chicken-* chickenbuild
       - run: C:\tools\msys64\usr\bin\bash.exe --login -c 'pacboy -Sy --needed --noconfirm binutils:x make:x gcc:x gettext:x readline:x'
-      - run: $env:Path+=";C:\tools\msys64\mingw64\bin"; mingw32-make.exe -C chickenbuild PLATFORM=mingw ARCH=x86-64 PREFIX=C:/tools/chicken
+      - run: cd chickenbuild; $env:Path+=";C:\tools\msys64\mingw64\bin";$env:CFLAGS="-O2 -Wno-unused-variable -Wno-unused-but-set-variable"; mingw32-make.exe PLATFORM=mingw ARCH=x86-64 PREFIX=C:/tools/chicken
       - run: .\build.ps1
       - run: choco apikey --key $Env:CHOCO_API_KEY --source https://push.chocolatey.org
       - run: choco push chicken.$Env:version.nupkg --source https://push.chocolatey.org
