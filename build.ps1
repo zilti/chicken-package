@@ -50,8 +50,8 @@ foreach ($file in $files) {
 cd ..
 # Cleanup and packaging
 Remove-Item -Recurse -Force chickenbuild
-(Get-Content chicken.nuspec).replace("CHICKEN_VERSION", "$Env:version-$Env:build") | Set-Content chicken\chicken.nuspec
+(Get-Content chicken.nuspec).replace("CHICKEN_VERSION", "$Env:version.$Env:build") | Set-Content chicken\chicken.nuspec
 cd chicken
 choco pack
 cd ..
-mv .\chicken\chicken.$Env:version-$Env:build.nupkg .\
+mv .\chicken\chicken.$Env:version.$Env:build.nupkg .\
