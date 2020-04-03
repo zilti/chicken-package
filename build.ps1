@@ -1,5 +1,5 @@
 ﻿# Building
-choco new chicken --version $Env:version --maintainername="'Daniel Ziltener'"
+choco new chicken --version $Env:version-$Env:build --maintainername="'Daniel Ziltener'"
 Remove-Item -Recurse -Force chicken\tools\
 Remove-Item -Force chicken\ReadMe.md
 
