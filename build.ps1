@@ -54,4 +54,4 @@ Remove-Item -Recurse -Force chickenbuild
 cd chicken
 choco pack
 cd ..
-mv .\chicken\chicken.$Env:version.nupkg .\
+mv .\chicken\chicken.$Env:version-$Env:build.nupkg .\
