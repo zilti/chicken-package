@@ -4,7 +4,7 @@
     <id>chicken</id>
     <version>CHICKEN_VERSION</version>
     <title>Chicken Scheme</title>
-    <authors>Felix Winkelmann, Peter Bex, Evan Hanson</authors>
+    <authors>Felix Winkelmann, Peter Bex, Evan Hanson, Kooda, megane</authors>
     <owners>Daniel Ziltener</owners>
     <licenseUrl>https://opensource.org/licenses/BSD-3-Clause</licenseUrl>
     <projectUrl>http://www.call-cc.org</projectUrl>

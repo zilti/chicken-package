@@ -1,8 +1,4 @@
-﻿#Set-Variable -Name "version" -Value "4.12.0"
-#$version = '5.2.0'
-#$binaryversion=11
-
-# Building
+﻿# Building
 choco new chicken --version $Env:version --maintainername="'Daniel Ziltener'"
 Remove-Item -Recurse -Force chicken\tools\
 Remove-Item -Force chicken\ReadMe.md
@@ -54,7 +50,7 @@ foreach ($file in $files) {
 cd ..
 # Cleanup and packaging
 Remove-Item -Recurse -Force chickenbuild
-(Get-Content chicken.nuspec).replace("CHICKEN_VERSION", "$Env:version") | Set-Content chicken\chicken.nuspec
+(Get-Content chicken.nuspec).replace("CHICKEN_VERSION", "$Env:version-$Env:build") | Set-Content chicken\chicken.nuspec
 cd chicken
 choco pack
 cd ..
