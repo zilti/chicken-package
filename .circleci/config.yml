@@ -9,7 +9,7 @@ jobs:
     environment:
       version: '5.2.0'
       binaryversion: '11'
-      build: '4'
+      build: '5'
     steps:
       - checkout
       - run: iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
@@ -23,9 +23,9 @@ jobs:
           Remove-Item -Force chicken.tar.gz
           Remove-Item -Force chicken.tar
           mv chicken-* chickenbuild
-      - run: C:\tools\msys64\usr\bin\bash.exe --login -c 'pacman -S --needed --noconfirm pactoys'
-      - run: C:\tools\msys64\usr\bin\bash.exe --login -c 'pacboy -Sy --needed --noconfirm binutils:x make:x gcc:x gettext:x readline:x'
-      - run: C:\tools\msys64\usr\bin\bash.exe --login -c 'cd chickenbuild; export CFLAGS="-O2 -Wno-unused-variable -Wno-unused-but-set-variable"; mingw32-make PLATFORM=mingw-msys ARCH=x86-64 PREFIX=C:/tools/chicken'
+      - run: C:\tools\msys64\usr\bin\env MSYSTEM=MINGW64 /bin/bash -l -c 'pacman -S --needed --noconfirm pactoys'
+      - run: C:\tools\msys64\usr\bin\env MSYSTEM=MINGW64 /bin/bash -l -c 'pacboy -Sy --needed --noconfirm binutils:x make:x gcc:x gettext:x readline:x'
+      - run: C:\tools\msys64\usr\bin\env MSYSTEM=MINGW64 /bin/bash -l -c "export CFLAGS='-O2 -Wno-unused-variable -Wno-unused-but-set-variable'; mingw32-make PLATFORM=mingw-msys ARCH=x86-64 PREFIX=C:/tools/chicken -C /c/Users/circleci/project/chicken/chickenbuild"
       - run: .\build.ps1
       - run: choco apikey --key $Env:CHOCO_API_KEY --source https://push.chocolatey.org
       - run: choco push chicken.$Env:version.$Env:build.nupkg --source https://push.chocolatey.org
