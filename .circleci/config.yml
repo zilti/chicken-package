@@ -9,7 +9,7 @@ jobs:
     environment:
       version: '5.2.0'
       binaryversion: '11'
-      build: '3'
+      build: '4'
     steps:
       - checkout
       - run: iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
@@ -23,6 +23,7 @@ jobs:
           Remove-Item -Force chicken.tar.gz
           Remove-Item -Force chicken.tar
           mv chicken-* chickenbuild
+      - run: C:\tools\msys64\usr\bin\bash.exe --login -c 'pacman -S --needed --noconfirm pactoys'
       - run: C:\tools\msys64\usr\bin\bash.exe --login -c 'pacboy -Sy --needed --noconfirm binutils:x make:x gcc:x gettext:x readline:x'
       - run: C:\tools\msys64\usr\bin\bash.exe --login -c 'cd chickenbuild; export CFLAGS="-O2 -Wno-unused-variable -Wno-unused-but-set-variable"; mingw32-make PLATFORM=mingw-msys ARCH=x86-64 PREFIX=C:/tools/chicken'
       - run: .\build.ps1
