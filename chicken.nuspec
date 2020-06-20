@@ -11,7 +11,9 @@
     <iconUrl>http://wiki.call-cc.org/chicken-small.png</iconUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <description>CHICKEN is a compiler for the Scheme programming language. It produces portable and efficient C and supports the R5RS and R7RS (work in progress) standards, and many extensions. It runs on Linux, OS X, Windows, many Unix flavours, and aims to be
-    free, simple, portable, extensible, well documented and actively supported.</description>
+    free, simple, portable, extensible, well documented and actively supported.
+    
+    This package will install GCC, Make and the binutils in your MSYS2 install, and add the MINGW64 bin directory to your PATH.</description>
     <summary>CHICKEN is a compiler for the Scheme programming language.</summary>
     <tags>chicken admin scheme lisp programming language</tags>
     <projectSourceUrl>https://code.call-cc.org/cgi-bin/gitweb.cgi?p=chicken-core.git;a=summary</projectSourceUrl>

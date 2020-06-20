@@ -19,7 +19,7 @@ $linkerlibdir="chicken\tools\lib"
 New-Item $linkerlibdir -ItemType Directory
 Copy-Item chickenbuild\libchicken.a $linkerlibdir
 Copy-Item chickenbuild\libchicken.dll.a $linkerlibdir
-$extbindir="chicken\tools\lib\chicken\9"
+$extbindir="chicken\tools\lib\chicken\$Env:binaryversion"
 New-Item $extbindir -ItemType Directory
 Copy-Item chickenbuild\*.so $extbindir
 Copy-Item chickenbuild\*.db $extbindir
