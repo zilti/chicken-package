@@ -23,8 +23,8 @@ jobs:
           Remove-Item -Force chicken.tar.gz
           Remove-Item -Force chicken.tar
           mv chicken-* chickenbuild
-      - run: C:\tools\msys64\usr\bin\env MSYSTEM=MINGW64 /bin/bash -l -c 'pacman -S --needed --noconfirm pactoys'
-      - run: C:\tools\msys64\usr\bin\env MSYSTEM=MINGW64 /bin/bash -l -c 'pacboy -Sy --needed --noconfirm binutils:x make:x gcc:x gettext:x readline:x patch'
+      - run: C:\tools\msys64\usr\bin\env MSYSTEM=MINGW64 /bin/bash -l -c 'pacman -S --needed --noconfirm pactoys patch'
+      - run: C:\tools\msys64\usr\bin\env MSYSTEM=MINGW64 /bin/bash -l -c 'pacboy -Sy --needed --noconfirm binutils:x make:x gcc:x gettext:x readline:x'
       - run: C:\tools\msys64\usr\bin\env MSYSTEM=MINGW64 /bin/bash -l -c 'patch -p1 chicken.h /c/Users/circleci/project/chicken_h_explicit_char.patch'
       - run: C:\tools\msys64\usr\bin\env MSYSTEM=MINGW64 /bin/bash -l -c "export CFLAGS='-O2 -Wno-unused-variable -Wno-unused-but-set-variable'; mingw32-make PLATFORM=mingw-msys ARCH=x86-64 PREFIX=C:/tools/chicken -C /c/Users/circleci/project/chickenbuild"
       - run: .\build.ps1
