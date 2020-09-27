@@ -1,3 +1,3 @@
-Remove-Item -Recurse -Force "C:\tools\chicken"
+Remove-Item -Recurse -Force "$(Get-ToolsLocation)\chicken"
 Uninstall-ChocolateyEnvironmentVariable -VariableName "CHICKEN_PREFIX" -VariableType Machine
 Update-SessionEnvironment
