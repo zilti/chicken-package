@@ -17,7 +17,7 @@
     <summary>CHICKEN is a compiler for the Scheme programming language.</summary>
     <tags>chicken admin scheme lisp programming language</tags>
     <projectSourceUrl>https://code.call-cc.org/cgi-bin/gitweb.cgi?p=chicken-core.git;a=summary</projectSourceUrl>
-    <packageSourceUrl>https://bitbucket.org/zilti/chicken</packageSourceUrl>
+    <packageSourceUrl>https://gitea.lyrion.ch/zilti/chicken-package</packageSourceUrl>
     <docsUrl>http://wiki.call-cc.org/man/5/The%20User%27s%20Manual</docsUrl>
     <mailingListUrl>http://lists.nongnu.org/mailman/listinfo/chicken-users</mailingListUrl>
     <bugTrackerUrl>http://bugs.call-cc.org/</bugTrackerUrl>
