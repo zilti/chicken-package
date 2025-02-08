@@ -1,0 +1,12 @@
+diff -ruN chickenbuild.orig/Makefile.mingw-msys chickenbuild/Makefile.mingw-msys
+--- chickenbuild.orig/Makefile.mingw-msys	2024-07-16 07:43:18.000000000 +0200
++++ chickenbuild/Makefile.mingw-msys	2025-02-10 00:05:23.581277800 +0100
+@@ -39,7 +39,7 @@
+ 
+ # options
+ 
+-C_COMPILER_OPTIONS ?= -fno-strict-aliasing -fwrapv -DHAVE_CHICKEN_CONFIG_H
++C_COMPILER_OPTIONS ?= -fno-strict-aliasing -fwrapv -fpermissive -DHAVE_CHICKEN_CONFIG_H
+ ifdef DEBUGBUILD
+ C_COMPILER_OPTIMIZATION_OPTIONS ?= -g -Wall -Wno-unused
+ else
