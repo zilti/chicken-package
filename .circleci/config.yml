@@ -9,7 +9,7 @@ jobs:
     environment:
       version: '5.4.0'
       binaryversion: '11'
-      build: '7'
+      build: '8'
     steps:
       - checkout
       - run: iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
